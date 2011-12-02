@@ -15,4 +15,4 @@ This code
    $('input#name').auto_kana_input();
  });
 
-will observes the value of <input id="name">. If you fill kanjis the field, corresponding kanas will automatically be inserted.
+will observes the value of <input id="name">. If you fill kanjis the field, corresponding kanas will automatically be inserted into <input id="name_kana">.

@@ -4,7 +4,7 @@ $.fn.extend
     last_kanji_character = null
     kanji_field_selector = this.selector
     kana_field_selector = options.target || (kanji_field_selector + '_kana')
-    this.live 'keydown', (event) ->
+    this.live 'keyup', (event) ->
       append_character_to_kana_field = (character) ->
         kana_field = select_kana_field()
         val = kana_field.val()

@@ -21,4 +21,4 @@ will observes the value of <input id="name">. If you fill kanjis the field, corr
 
 jQuery Auto Kana Input is released under the MIT license:
 
-* {LICENSE}[link:/ysawa/jquery-auto-kana-input/LICENSE.txt]
+* {LICENSE}[link:/ysawa/jquery-auto-kana-input/blob/master/LICENSE.txt]

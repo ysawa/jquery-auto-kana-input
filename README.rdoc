@@ -16,3 +16,9 @@ This code
  });
 
 will observes the value of <input id="name">. If you fill kanjis the field, corresponding kanas will automatically be inserted into <input id="name_kana">.
+
+== License
+
+jQuery Auto Kana Input is released under the MIT license:
+
+* {LICENSE}[link:/ysawa/jquery-auto-kana-input/LICENSE.txt]

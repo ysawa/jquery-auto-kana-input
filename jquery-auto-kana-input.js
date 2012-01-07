@@ -18,7 +18,7 @@
           return kana_field.val(val + replace_to_katakana(character));
         };
         is_backspace = function(event) {
-          return event.which !== 8;
+          return event.which === 8;
         };
         is_kana = function(character) {
           return character.match(/^[ぁ-んァ-ヶー]$/);
@@ -37,7 +37,7 @@
         kanji = $(this).val();
         length = kanji.length;
         kanji_character = kanji.charAt(length - 1);
-        if (past_kanji !== kanji && is_kana(kanji_character) && is_backspace(event)) {
+        if (past_kanji !== kanji && is_kana(kanji_character) && !is_backspace(event)) {
           append_character_to_kana_field(kanji_character);
         }
         if (length === 0) {

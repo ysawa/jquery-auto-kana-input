@@ -17,6 +17,16 @@ First, you should load the scripts of jquery and jquery-auto-kana-input. Next, T
 
 will observes the value of \<input id="name"\>. If you fill kanjis the field, corresponding kanas will automatically be inserted into \<input id="name_kana"\>.
 
+While you are inputting in \<input id="name"\>
+
+    庭には二羽鶏がいる。東京特許許可局
+
+you can get in another input field of \<input id="name_kana"\>
+
+    ニワニハニワニワトリガイルトウキョウトキョキョカキョク
+
+automatically. It is very helpful.
+
 ## Compatibility
 
 I checked the plugin around Google Chrome v19.0.1084.46 and Safari v5.1.7 (7534.57.2) on Mac OS X (Lion). I used Kotoeri and ATOK 2011 for Mac Ver.24.0.2 as IME. In those environments, it works and I have had good feelings with it. However, unfortunately the plugin did not work.

@@ -1,7 +1,7 @@
 # jQuery Auto Kana Input (jquery-auto-kana-input)
 
 In forms of Japanese websites, we fill in the annoying kana (hiragana/katakana) fields.
-The JQuery plugin helps to insert those fields.
+The jQuery plugin helps to insert those fields.
 
 ## About jQuery Auto Kana Input
 

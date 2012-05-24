@@ -2,7 +2,7 @@
 
   $.fn.extend({
     auto_kana_input: function(options) {
-      var ALPHABET_REGEXP, KANA_REGEXP, append_character_to_kana_field, append_rome_buffer, clear_kana_field, clear_rome_buffer, is_rome_key, is_special_key, kana_field, kana_field_selector, kanji_field, kanji_field_selector, katakana, pop_rome_buffer, replace_to_katakana, rome_buffer, safe_rome_buffer;
+      var ALPHABET_REGEXP, KANA_REGEXP, append_character_to_kana_field, append_rome_buffer, clear_kana_field, clear_rome_buffer, is_rome_key, is_special_key, kana_field, kana_field_selector, kanji_field, kanji_field_selector, katakana, pop_rome_buffer, replace_to_katakana, rome_buffer, safe_sweep_rome_buffer;
       if (options == null) options = {};
       ALPHABET_REGEXP = /^[a-zA-Z]$/;
       KANA_REGEXP = /^[ぁ-んァ-ヶー]$/;
@@ -69,8 +69,8 @@
           return false;
         }
       };
-      safe_rome_buffer = function() {
-        if (rome_buffer.length >= 4) return clear_rome_buffer();
+      safe_sweep_rome_buffer = function() {
+        if (rome_buffer.length >= 4) return rome_buffer = rome_buffer.substring(1);
       };
       return this.live('keyup', function(event) {
         var kana, keycode, rome;
@@ -78,12 +78,15 @@
         if (is_rome_key(keycode)) {
           rome = String.fromCharCode(keycode).toLowerCase();
           append_rome_buffer(rome);
+          safe_sweep_rome_buffer();
           kana = pop_rome_buffer();
-          if (kana) {
-            append_character_to_kana_field(kana);
-          } else {
-            safe_rome_buffer();
+          if (kana) append_character_to_kana_field(kana);
+        } else if (keycode === 189) {
+          if (rome_buffer.substring(0, 1) === 'n') {
+            append_character_to_kana_field('ん');
           }
+          append_character_to_kana_field('ー');
+          clear_rome_buffer();
         }
         if (kanji_field.val() === '') return clear_kana_field();
       });

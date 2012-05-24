@@ -58,9 +58,9 @@ $.fn.extend
       else
         false
 
-    safe_rome_buffer = () ->
+    safe_sweep_rome_buffer = () ->
       if rome_buffer.length >= 4
-        clear_rome_buffer()
+        rome_buffer = rome_buffer.substring(1)
 
     this.live 'keyup', (event) ->
       keycode = event.which
@@ -68,11 +68,16 @@ $.fn.extend
       if is_rome_key(keycode)
         rome = String.fromCharCode(keycode).toLowerCase()
         append_rome_buffer(rome)
+        safe_sweep_rome_buffer()
         kana = pop_rome_buffer()
         if kana
           append_character_to_kana_field(kana)
-        else
-          safe_rome_buffer()
+      else if keycode == 189
+        if rome_buffer.substring(0, 1) == 'n'
+          append_character_to_kana_field('ん')
+        append_character_to_kana_field('ー')
+        clear_rome_buffer()
+
       if kanji_field.val() == ''
         clear_kana_field()
 
